@@ -1,6 +1,7 @@
 local M = {}
 
 local hsluv = require 'monochrome.hsluv'
+local iterm2 = require 'monochrome.iterm2'
 
 local Default = { '#EBEBEB', '#101010' }
 local Subtle = { '#F1F5F9', '#0A1219' }
