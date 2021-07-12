@@ -1,7 +1,7 @@
 local colors = require'monochrome'.colors
 return {
   normal = {
-    a = { fg = colors.bg, bg = colors.fg, gui = 'bold' },
+    a = { fg = colors.bg, bg = colors.gray7, gui = 'bold' },
     b = { fg = colors.white, bg = colors.gray1 },
     c = { fg = colors.fg, bg = colors.bg },
   },

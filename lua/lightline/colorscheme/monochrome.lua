@@ -3,7 +3,7 @@ local colors = require('monochrome').colors
 local monochrome = {}
 
 monochrome.normal = {
-  left = { { colors.bg, colors.fg }, { colors.fg, colors.gray1 } },
+  left = { { colors.bg, colors.gray7 }, { colors.fg, colors.gray1 } },
   middle = { { colors.fg, colors.gray1 } },
   right = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
   error = { { colors.black, colors.bright_red } },
