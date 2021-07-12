@@ -2,7 +2,7 @@ M = {}
 local hsluv = require 'monochrome.hsluv'
 
 local function rgb2float(rgb)
-  return { rgb[1] / 255, rgb[2] / 255, rgb[3] / 255 }
+  return { rgb[1], rgb[2], rgb[3] }
 end
 local function make_color(name, value)
   return '                <key>' .. name .. ' Component</key>\n                <real>' .. value .. '</real>\n'

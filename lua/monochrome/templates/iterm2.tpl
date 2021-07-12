@@ -108,7 +108,7 @@
 	<dict>
 		<key>Color Space</key>
 		<string>sRGB</string>
-[{>fg}}
+{{>fg}}
 	</dict>
 	<key>Cursor Color</key>
 	<dict>
