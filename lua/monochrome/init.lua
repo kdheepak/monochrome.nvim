@@ -318,7 +318,7 @@ function M.load_syntax()
     SpecialChar = { link = 'TSStringEscape' },
     String = { link = 'TSString' },
     Structure = { link = 'TSAnnotation' },
-    TSField = { link = 'TSProperty' },
+    Field = { link = 'TSProperty' },
     Tag = { link = 'TSTag' },
     Title = { link = 'TSTitle' },
     Type = { link = 'TSType' },
@@ -476,15 +476,15 @@ function M.load_plugin_syntax()
     TelescopeSelectionCaret = { fg = colors.white },
     TelescopeMultiSelection = { style = 'italic' },
 
-    BufferCurrent = { fg = colors.gray7 },
-    BufferCurrentMod = { fg = colors.gray7, style = 'italic' },
-    BufferCurrentSign = {},
+    BufferCurrent = { fg = colors.gray7, bg = colors.bg },
+    BufferCurrentMod = { fg = colors.gray7, bg = colors.bg, style = 'italic' },
+    BufferCurrentSign = { fg = colors.gray7, bg = colors.bg },
     BufferVisible = {},
     BufferVisibleMod = {},
     BufferVisibleSign = {},
-    BufferInactive = { fg = colors.gray3 },
-    BufferInactiveMod = { fg = colors.gray3, style = 'italic' },
-    BufferInactiveSign = {},
+    BufferInactive = { fg = colors.gray3, bg = colors.bg_alt },
+    BufferInactiveMod = { fg = colors.gray3, bg = colors.bg_alt, style = 'italic' },
+    BufferInactiveSign = { fg = colors.gray3, bg = colors.bg_alt },
   }
   return plugin_syntax
 end
