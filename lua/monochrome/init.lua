@@ -506,7 +506,7 @@ function M.colorscheme()
     vim.api.nvim_command('syntax reset')
   end
   vim.o.termguicolors = true
-  vim.g.colors_name = 'nes'
+  vim.g.colors_name = 'monochrome'
   local color_style
   if vim.g.monochrome_style == 'default' then
     color_style = Default
