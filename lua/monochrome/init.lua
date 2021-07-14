@@ -1,9 +1,3 @@
-local M = {}
-
-local theme = require('monochrome.theme')
-
-M.colorscheme = function()
-  theme.colorscheme()
-end
+local M = require('monochrome.theme')
 
 return M
