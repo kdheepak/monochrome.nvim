@@ -3,29 +3,41 @@ local colors = require('monochrome').colors
 local monochrome = {}
 
 monochrome.normal = {
-  left = { { colors.bg, colors.gray7 }, { colors.fg, colors.gray1 } },
-  middle = { { colors.fg, colors.gray1 } },
-  right = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
+  a = { { colors.bg, colors.gray7 }, { colors.fg, colors.gray1 } },
+  b = { { colors.fg, colors.gray1 } },
+  c = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
   error = { { colors.black, colors.bright_red } },
   warning = { { colors.black, colors.bright_yellow } },
 }
 
-monochrome.insert = { left = { { colors.bg, colors.faded_blue }, { colors.fg, colors.gray1 } } }
+monochrome.insert = {
+  a = { { colors.bg, colors.faded_blue }, { colors.fg, colors.gray1 } },
+  b = { { colors.fg, colors.gray1 } },
+  c = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
+}
 
-monochrome.visual = { left = { { colors.bg, colors.faded_yellow }, { colors.fg, colors.gray1 } } }
+monochrome.visual = {
+  a = { { colors.bg, colors.faded_yellow }, { colors.fg, colors.gray1 } },
+  b = { { colors.fg, colors.gray1 } },
+  c = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
+}
 
-monochrome.replace = { left = { { colors.bg, colors.faded_red }, { colors.fg, colors.gray1 } } }
+monochrome.replace = {
+  a = { { colors.bg, colors.faded_red }, { colors.fg, colors.gray1 } },
+  b = { { colors.fg, colors.gray1 } },
+  c = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
+}
 
 monochrome.inactive = {
-  left = { { colors.fg, colors.fg }, { colors.fg, colors.gray1 } },
-  middle = { { colors.fg, colors.gray1 } },
-  right = { { colors.fg, colors.gray1 }, { colors.fg, colors.fg } },
+  a = { { colors.fg, colors.fg }, { colors.fg, colors.gray1 } },
+  b = { { colors.fg, colors.gray1 } },
+  c = { { colors.fg, colors.gray1 }, { colors.fg, colors.fg } },
 }
 
 monochrome.tabline = {
-  left = { { colors.bg, colors.fg }, { colors.fg, colors.gray1 } },
-  middle = { { colors.fg, colors.gray1 } },
-  right = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
+  a = { { colors.bg, colors.fg }, { colors.fg, colors.gray1 } },
+  b = { { colors.fg, colors.gray1 } },
+  c = { { colors.fg, colors.gray1 }, { colors.bg, colors.fg } },
   tabsel = { { colors.bright_blue, colors.fg }, { colors.fg, colors.bg } },
 }
 
