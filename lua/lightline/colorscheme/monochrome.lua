@@ -1,4 +1,4 @@
-local colors = require('monochrome').colors
+local colors = require('monochrome.colors')
 
 local monochrome = {}
 
