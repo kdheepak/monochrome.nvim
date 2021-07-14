@@ -1,4 +1,4 @@
-local colors = require'monochrome.theme'.colors
+local colors = require 'monochrome.colors'
 return {
   normal = {
     a = { fg = colors.bg, bg = colors.gray7, gui = 'bold' },
