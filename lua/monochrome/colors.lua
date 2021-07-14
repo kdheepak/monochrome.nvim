@@ -3,6 +3,7 @@ local util = require 'monochrome.util'
 local Default = { '#EBEBEB', '#101010' }
 local Subtle = { '#F1F5F9', '#0A1219' }
 local CoolGray = { '#F9FAFB', '#111827' }
+local Photon = { '#c6c6c6', '#262626' }
 local Amplified = { '#FFFFFF', '#000000' }
 
 -- LuaFormatter off
@@ -56,6 +57,10 @@ elseif vim.g.monochrome_style == 'amplified' then
   color_style = Amplified
 elseif vim.g.monochrome_style == 'coolgray' then
   color_style = CoolGray
+elseif vim.g.monochrome_style == 'photon' then
+  color_style = Photon
+elseif vim.g.monochrome_style == 'custom' then
+  color_style = vim.g.monochrome_custom_style
 else
   color_style = Default
 end

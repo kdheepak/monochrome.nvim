@@ -26,7 +26,7 @@ function M.blend(fg, bg, blend)
 
   local _, s1, l1 = unpack(hsl1)
   local _, s2, l2 = unpack(hsl2)
-  return hsluv.hsluv_to_hex({ hue, s1 + (s2 - s1) * saturation_blend, l1 + (l2 - l1) * lightness_blend })
+  return hsluv.hpluv_to_hex({ hue, s1 + (s2 - s1) * saturation_blend, l1 + (l2 - l1) * lightness_blend })
 end
 
 function M.colorDistance(hs1, hs2)
@@ -119,15 +119,15 @@ function M.colorize(fg, bg)
     last = math.floor(last)
   end
   local palette = {}
-  for i, v in pairs(range(first, last, math.floor((last - first) / 10))) do
-    palette['gray' .. tostring(i - 1)] = hsluv.hsluv_to_hex({ 0, 0, v })
+  for i, v in pairs(range(first, last, (last - first) / 10)) do
+    palette['gray' .. tostring(i - 1)] = hsluv.hpluv_to_hex({ 0, 0, v })
   end
   palette['gray10'] = nil
   palette['gray0'] = nil
-  palette['white'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, higher }))[3] })
-  palette['black'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, lower }))[3] })
-  palette['fg'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, last }))[3] })
-  palette['bg'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, first }))[3] })
+  palette['white'] = hsluv.hpluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hpluv_to_hex({ 0, 0, higher }))[3] })
+  palette['black'] = hsluv.hpluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hpluv_to_hex({ 0, 0, lower }))[3] })
+  palette['fg'] = hsluv.hpluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hpluv_to_hex({ 0, 0, last }))[3] })
+  palette['bg'] = hsluv.hpluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hpluv_to_hex({ 0, 0, first }))[3] })
   palette['bg_alt'] = M.blend(palette['bg'], palette['gray1'], { 0.5, 0.5, 0.5 })
   palette['fg_alt'] = M.blend(palette['fg'], palette['gray9'], { 0.5, 0.5, 0.5 })
   return palette

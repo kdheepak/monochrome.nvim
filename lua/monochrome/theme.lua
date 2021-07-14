@@ -49,7 +49,7 @@ function M.load_syntax()
     Todo = { fg = colors.purple, style = 'bold' },
 
     LineNr = { fg = colors.gray3 },
-    CursorLineNr = { fg = colors.gray7, bg = colors.bg_alt },
+    CursorLineNr = { fg = colors.gray8, bg = colors.bg_alt },
 
     Cursor = { fg = colors.bg, bg = colors.fg },
     lCursor = { fg = colors.bg, bg = colors.fg },
@@ -67,7 +67,7 @@ function M.load_syntax()
     Pmenu = { fg = colors.fg, bg = colors.gray1 },
     PmenuSel = { fg = colors.gray1, bg = colors.fg },
     PmenuSbar = { fg = colors.fg, bg = colors.gray1 },
-    PmenuThumb = { fg = colors.bg, bg = colors.gray9 },
+    PmenuThumb = { fg = colors.bg, bg = colors.gray8 },
 
     SpellBad = { fg = colors.orange, style = 'underline' },
     SpellCap = {},
@@ -85,7 +85,7 @@ function M.load_syntax()
 
     TSAnnotation = {},
     TSAttribute = {},
-    TSBoolean = { fg = colors.fg },
+    TSBoolean = { fg = colors.fg, style = 'bold' },
     TSCharacter = { fg = colors.fg },
     -- this is a comment
     TSComment = { fg = colors.gray3, style = 'italic' },
@@ -97,7 +97,7 @@ function M.load_syntax()
     TSError = { style = 'underline,italic' },
     TSException = { style = 'underline,bold' },
     TSField = { fg = colors.gray5 },
-    TSFloat = { fg = colors.fg },
+    TSFloat = { fg = colors.fg, style = 'bold' },
     TSFunction = { fg = colors.gray6 },
     TSFuncBuiltin = { fg = colors.gray4 },
     TSFuncMacro = { fg = colors.gray6 },
@@ -110,7 +110,7 @@ function M.load_syntax()
     TSMethod = { fg = colors.gray6 },
     TSNamespace = { fg = colors.gray4 },
     TSNone = { fg = colors.gray3 },
-    TSNumber = { fg = colors.fg },
+    TSNumber = { fg = colors.fg, style = 'bold' },
     TSOperator = { fg = colors.fg },
     TSParameter = { fg = colors.gray7 },
     TSParameterReference = { fg = colors.gray7 },
@@ -119,9 +119,9 @@ function M.load_syntax()
     TSPunctBracket = { fg = colors.fg },
     TSPunctSpecial = { fg = colors.fg },
     TSRepeat = { fg = colors.gray4 },
-    TSString = { fg = colors.gray8 },
-    TSStringRegex = { fg = colors.gray8 },
-    TSStringEscape = { fg = colors.gray8 },
+    TSString = { fg = colors.gray9 },
+    TSStringRegex = { fg = colors.gray9 },
+    TSStringEscape = { fg = colors.gray9 },
     TSSymbol = { fg = colors.fg },
     TSTag = { fg = colors.fg },
     TSTagDelimiter = {},
@@ -142,8 +142,8 @@ function M.load_syntax()
     TSDanger = { style = 'bold' },
     TSType = { fg = colors.gray4 },
     TSTypeBuiltin = { fg = colors.gray4 },
-    TSVariable = { fg = colors.fg },
-    TSVariableBuiltin = { fg = colors.fg },
+    TSVariable = { fg = colors.gray8 },
+    TSVariableBuiltin = { fg = colors.gray8 },
 
     Bold = { link = 'TSStrong' },
     Boolean = { link = 'TSBoolean' },
@@ -316,12 +316,12 @@ function M.load_plugin_syntax()
     mkdCodeEnd = { fg = colors.gray4 },
     mkdURL = { fg = colors.bright_blue },
 
-    NvimTreeFolderName = { fg = colors.gray9 },
+    NvimTreeFolderName = { fg = colors.gray8 },
     NvimTreeRootFolder = { fg = colors.fg },
     NvimTreeSpecialFile = {},
 
     TelescopeBorder = { fg = colors.gray5 },
-    TelescopePromptBorder = { fg = colors.gray9 },
+    TelescopePromptBorder = { fg = colors.fg },
     TelescopeMatching = {},
     TelescopeSelection = { style = 'bold' },
     TelescopeSelectionCaret = { fg = colors.fg },
@@ -330,9 +330,9 @@ function M.load_plugin_syntax()
     BufferCurrent = { fg = colors.fg, bg = colors.bg },
     BufferCurrentMod = { fg = colors.fg, bg = colors.bg, style = 'italic' },
     BufferCurrentSign = { fg = colors.fg, bg = colors.bg },
-    BufferVisible = { fg = colors.gray7, bg = colors.bg },
-    BufferVisibleMod = { fg = colors.gray7, bg = colors.bg, style = 'italic' },
-    BufferVisibleSign = { fg = colors.gray7, bg = colors.bg },
+    BufferVisible = { fg = colors.gray8, bg = colors.bg },
+    BufferVisibleMod = { fg = colors.gray8, bg = colors.bg, style = 'italic' },
+    BufferVisibleSign = { fg = colors.gray8, bg = colors.bg },
     BufferInactive = { fg = colors.gray3, bg = colors.bg_alt },
     BufferInactiveMod = { fg = colors.gray3, bg = colors.bg_alt, style = 'italic' },
     BufferInactiveSign = { fg = colors.gray3, bg = colors.bg_alt },
@@ -356,6 +356,7 @@ function M.colorscheme()
   for group, tables in pairs(plugin_syntax) do
     M.highlight(group, tables)
   end
+
 end
 
 function M.reset()
