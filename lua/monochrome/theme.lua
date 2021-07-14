@@ -5,14 +5,14 @@ local colors = require 'monochrome.colors'
 M.colors = colors
 
 function M.terminal_color()
-  vim.g.terminal_color_0 = colors.black
+  vim.g.terminal_color_0 = colors.bg
   vim.g.terminal_color_1 = colors.faded_red
   vim.g.terminal_color_2 = colors.faded_green
   vim.g.terminal_color_3 = colors.faded_yellow
   vim.g.terminal_color_4 = colors.faded_blue
   vim.g.terminal_color_5 = colors.faded_purple
   vim.g.terminal_color_6 = colors.faded_aqua
-  vim.g.terminal_color_7 = colors.white
+  vim.g.terminal_color_7 = colors.fg
   vim.g.terminal_color_8 = colors.gray1
   vim.g.terminal_color_9 = colors.bright_red
   vim.g.terminal_color_10 = colors.bright_green
@@ -38,10 +38,10 @@ end
 function M.load_syntax()
   local syntax = {
 
-    Normal = { fg = colors.white, bg = colors.black },
-    Terminal = { fg = colors.white, bg = colors.black },
-    Visual = { fg = colors.black, bg = colors.white },
-    VisualNOS = { fg = colors.black, bg = colors.white },
+    Normal = { fg = colors.fg, bg = colors.bg },
+    Terminal = { fg = colors.fg, bg = colors.bg },
+    Visual = { fg = colors.bg, bg = colors.fg },
+    VisualNOS = { fg = colors.bg, bg = colors.fg },
 
     -- This is a comment
     SpecialComment = { fg = colors.gray6, style = 'bold,italic' },
@@ -51,23 +51,23 @@ function M.load_syntax()
     LineNr = { fg = colors.gray3 },
     CursorLineNr = { fg = colors.gray7, bg = colors.bg_alt },
 
-    Cursor = { fg = colors.black, bg = colors.white },
-    lCursor = { fg = colors.black, bg = colors.white },
-    CursorIM = { fg = colors.black, bg = colors.white },
-    CursorColumn = { fg = colors.white },
+    Cursor = { fg = colors.bg, bg = colors.fg },
+    lCursor = { fg = colors.bg, bg = colors.fg },
+    CursorIM = { fg = colors.bg, bg = colors.fg },
+    CursorColumn = { fg = colors.fg },
 
     CursorLine = { bg = colors.bg_alt },
 
     ColorColumn = { bg = colors.bg_alt },
     Conceal = { fg = colors.gray2 },
 
-    IncSearch = { fg = colors.black, bg = colors.bright_blue, style = 'bold' },
-    Search = { fg = colors.black, bg = colors.faded_blue },
+    IncSearch = { fg = colors.bg, bg = colors.bright_blue, style = 'bold' },
+    Search = { fg = colors.bg, bg = colors.faded_blue },
 
-    Pmenu = { fg = colors.white, bg = colors.gray1 },
-    PmenuSel = { fg = colors.gray1, bg = colors.white },
-    PmenuSbar = { fg = colors.white, bg = colors.gray1 },
-    PmenuThumb = { fg = colors.black, bg = colors.gray9 },
+    Pmenu = { fg = colors.fg, bg = colors.gray1 },
+    PmenuSel = { fg = colors.gray1, bg = colors.fg },
+    PmenuSbar = { fg = colors.fg, bg = colors.gray1 },
+    PmenuThumb = { fg = colors.bg, bg = colors.gray9 },
 
     SpellBad = { fg = colors.orange, style = 'underline' },
     SpellCap = {},
@@ -81,23 +81,23 @@ function M.load_syntax()
 
     MatchParen = { style = 'bold' },
 
-    VertSplit = { fg = colors.black, bg = colors.black },
+    VertSplit = { fg = colors.bg, bg = colors.bg },
 
     TSAnnotation = {},
     TSAttribute = {},
-    TSBoolean = { fg = colors.white },
-    TSCharacter = { fg = colors.white },
+    TSBoolean = { fg = colors.fg },
+    TSCharacter = { fg = colors.fg },
     -- this is a comment
     TSComment = { fg = colors.gray3, style = 'italic' },
     TSConditional = { fg = colors.gray4 },
-    TSConstant = { fg = colors.gray8 },
+    TSConstant = { fg = colors.fg },
     TSConstBuiltin = { fg = colors.gray3 },
     TSConstMacro = {},
-    TSConstructor = { fg = colors.gray8 },
+    TSConstructor = { fg = colors.fg },
     TSError = { style = 'underline,italic' },
     TSException = { style = 'underline,bold' },
     TSField = { fg = colors.gray5 },
-    TSFloat = { fg = colors.white },
+    TSFloat = { fg = colors.fg },
     TSFunction = { fg = colors.gray6 },
     TSFuncBuiltin = { fg = colors.gray4 },
     TSFuncMacro = { fg = colors.gray6 },
@@ -106,32 +106,32 @@ function M.load_syntax()
     TSKeywordFunction = { fg = colors.gray4 },
     TSKeywordOperator = { fg = colors.gray4 },
     TSKeywordReturn = { fg = colors.gray4 },
-    TSLabel = { fg = colors.white },
+    TSLabel = { fg = colors.fg },
     TSMethod = { fg = colors.gray6 },
     TSNamespace = { fg = colors.gray4 },
     TSNone = { fg = colors.gray3 },
-    TSNumber = { fg = colors.white },
-    TSOperator = { fg = colors.gray8 },
+    TSNumber = { fg = colors.fg },
+    TSOperator = { fg = colors.fg },
     TSParameter = { fg = colors.gray7 },
     TSParameterReference = { fg = colors.gray7 },
     TSProperty = { fg = colors.gray5 },
-    TSPunctDelimiter = { fg = colors.gray8 },
-    TSPunctBracket = { fg = colors.gray8 },
-    TSPunctSpecial = { fg = colors.gray8 },
+    TSPunctDelimiter = { fg = colors.fg },
+    TSPunctBracket = { fg = colors.fg },
+    TSPunctSpecial = { fg = colors.fg },
     TSRepeat = { fg = colors.gray4 },
-    TSString = { fg = colors.white },
-    TSStringRegex = { fg = colors.white },
-    TSStringEscape = { fg = colors.white },
-    TSSymbol = { fg = colors.white },
-    TSTag = { fg = colors.white },
+    TSString = { fg = colors.gray8 },
+    TSStringRegex = { fg = colors.gray8 },
+    TSStringEscape = { fg = colors.gray8 },
+    TSSymbol = { fg = colors.fg },
+    TSTag = { fg = colors.fg },
     TSTagDelimiter = {},
-    TSText = { fg = colors.white },
+    TSText = { fg = colors.fg },
     TSStrong = { style = 'bold' },
     TSEmphasis = { style = 'italic' },
     TSUnderline = { style = 'underline' },
     TSStrike = { style = 'strikethrough' },
     TSTitle = {},
-    TSLiteral = { fg = colors.white },
+    TSLiteral = { fg = colors.fg },
     TSURI = {},
     TSMath = {},
     TSTextReference = {},
@@ -142,8 +142,8 @@ function M.load_syntax()
     TSDanger = { style = 'bold' },
     TSType = { fg = colors.gray4 },
     TSTypeBuiltin = { fg = colors.gray4 },
-    TSVariable = { fg = colors.gray8 },
-    TSVariableBuiltin = { fg = colors.gray8 },
+    TSVariable = { fg = colors.fg },
+    TSVariableBuiltin = { fg = colors.fg },
 
     Bold = { link = 'TSStrong' },
     Boolean = { link = 'TSBoolean' },
@@ -199,7 +199,7 @@ function M.load_syntax()
     Ignore = {},
     PreProc = {},
     Special = {},
-    ToolbarLine = { bg = colors.black },
+    ToolbarLine = { bg = colors.bg },
     ToolbarButton = { style = 'bold' },
     qfLineNr = {},
     Whitespace = { fg = colors.gray2 },
@@ -317,14 +317,14 @@ function M.load_plugin_syntax()
     mkdURL = { fg = colors.bright_blue },
 
     NvimTreeFolderName = { fg = colors.gray9 },
-    NvimTreeRootFolder = { fg = colors.white },
+    NvimTreeRootFolder = { fg = colors.fg },
     NvimTreeSpecialFile = {},
 
     TelescopeBorder = { fg = colors.gray5 },
-    TelescopePromptBorder = { fg = colors.gray8 },
+    TelescopePromptBorder = { fg = colors.gray9 },
     TelescopeMatching = {},
     TelescopeSelection = { style = 'bold' },
-    TelescopeSelectionCaret = { fg = colors.white },
+    TelescopeSelectionCaret = { fg = colors.fg },
     TelescopeMultiSelection = { style = 'italic' },
 
     BufferCurrent = { fg = colors.fg, bg = colors.bg },

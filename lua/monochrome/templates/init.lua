@@ -27,7 +27,7 @@ end
 
 local CURRENT_FOLDER = debug.getinfo(1, 'S').source:sub(2):match('(.*[/\\])')
 
-function M.generate_script(path)
+function M.generate_iterm2_script(path)
   local colors = require'monochrome'.colors
   local iterm2_codes = {
     fg = colors.fg,
@@ -57,6 +57,16 @@ function M.generate_script(path)
   for key, value in pairs(iterm2_codes) do
     local s = [[\033]1337;SetColors=]] .. key .. '=' .. string.gsub(value, '#', '') .. [[\a]]
     s = 'echo -ne "' .. s .. '"\n'
+    content = content .. s
+  end
+  writeFile(path, content)
+end
+
+function M.generate_bashenv_script(path)
+  local colors = require'monochrome'.colors
+  local content = ''
+  for key, value in pairs(colors) do
+    local s = [[export ]] .. key:upper() .. [[=]] .. value .. '\n'
     content = content .. s
   end
   writeFile(path, content)

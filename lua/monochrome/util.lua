@@ -106,18 +106,28 @@ function M.colorize(fg, bg)
   -- https://github.com/anotherglitchinthematrix/monochrome/blob/master/src/base.js
   local first = hsluv.hex_to_hsluv(bg)[3]
   local last = hsluv.hex_to_hsluv(fg)[3]
-  first = math.floor(first)
-  last = math.ceil(last)
+  local lower, higher
+  if first < last then
+    lower = first
+    higher = last
+    first = math.floor(first)
+    last = math.ceil(last)
+  else
+    lower = last
+    higher = first
+    first = math.ceil(first)
+    last = math.floor(last)
+  end
   local palette = {}
   for i, v in pairs(range(first, last, math.floor((last - first) / 10))) do
     palette['gray' .. tostring(i - 1)] = hsluv.hsluv_to_hex({ 0, 0, v })
   end
   palette['gray10'] = nil
   palette['gray0'] = nil
-  palette['white'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, last }))[3] })
-  palette['black'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, first }))[3] })
-  palette['bg'] = palette['black']
-  palette['fg'] = palette['white']
+  palette['white'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, higher }))[3] })
+  palette['black'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, lower }))[3] })
+  palette['fg'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, last }))[3] })
+  palette['bg'] = hsluv.hsluv_to_hex({ 0, 0, hsluv.hex_to_hsluv(hsluv.hsluv_to_hex({ 0, 0, first }))[3] })
   palette['bg_alt'] = M.blend(palette['bg'], palette['gray1'], { 0.5, 0.5, 0.5 })
   palette['fg_alt'] = M.blend(palette['fg'], palette['gray9'], { 0.5, 0.5, 0.5 })
   return palette
